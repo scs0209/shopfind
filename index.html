@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>ShopFind</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <a href="/">Shop Find</a>
+        </div>
+        <ul class="navbar__list">
+          <li class="navbar__item">최신 쇼핑몰</li>
+          <li class="navbar__item">인기 쇼핑몰</li>
+          <li class="navbar__item">연령대별 쇼핑몰</li>
+          <li><a href="/login.html">로그인</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <section id="search-shopping-malls">
+          <h2>Find your favorite shopping mall</h2>
+          <form>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for shopping mall"
+            />
+            <button type="submit">Search</button>
+          </form>
+          <div id="search-results">
+            <!-- 검색 결과를 보여줄 부분 -->
+          </div>
+        </section>
+
+        <section id="shopping-malls">
+          <h1>추천 쇼핑몰</h1>
+          <ul>
+            <!-- 쇼핑몰 목록이 여기에 동적으로 추가됨 -->
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer id="footer"></footer>
+    <script src="./scripts/footer.js"></script>
+    <script src="./scripts/api.js"></script>
+  </body>
+</html>
