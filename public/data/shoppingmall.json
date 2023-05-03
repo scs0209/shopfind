@@ -1,0 +1,29 @@
+{
+  "shoppingMalls": [
+    {
+      "name": "무신사스토어",
+      "url": "https://www.musinsa.com/app/",
+      "imgSrc": "./images/musinsa.png"
+    },
+    {
+      "name": "쿠팡",
+      "url": "https://www.coupang.com/",
+      "imgSrc": "./images/coupang.png"
+    },
+    {
+      "name": "11번가",
+      "url": "https://www.11st.co.kr/",
+      "imgSrc": "./images/11번가.png"
+    },
+    {
+      "name": "G마켓",
+      "url": "https://www.gmarket.co.kr/",
+      "imgSrc": "./images/g마켓.png"
+    },
+    {
+      "name": "에이블리",
+      "url": "https://m.a-bly.com/",
+      "imgSrc": "./images/ably.png"
+    }
+  ]
+}

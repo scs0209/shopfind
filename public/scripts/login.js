@@ -1,5 +1,6 @@
 "use strict";
 const form = document.querySelector(".login-form");
+
 // 로그인 폼 제출 시 이벤트 핸들러 등록
 form.addEventListener("submit", function (e) {
   e.preventDefault(); // 폼 제출 기본 동작 방지
@@ -10,6 +11,8 @@ form.addEventListener("submit", function (e) {
 
   // 이메일과 비밀번호 비교하여 로그인 처리
   if (user && user.email === loginEmail && user.password === loginPassword) {
+    localStorage.setItem("isLoggedIn", true);
+    localStorage.setItem("userEmail", loginEmail);
     // 로그인 성공 시 홈페이지로 이동
     window.location.href = "./index.html";
   } else if (user.email !== loginEmail) {
