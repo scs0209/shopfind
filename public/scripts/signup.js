@@ -8,6 +8,8 @@ form.addEventListener("submit", (e) => {
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirm-password").value;
   const email = document.getElementById("email").value;
+  const age = document.getElementById("age").value;
+  const gender = document.getElementById("gender").value;
 
   if (password !== confirmPassword) {
     alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
@@ -24,6 +26,8 @@ form.addEventListener("submit", (e) => {
     username,
     password,
     email,
+    age,
+    gender,
   };
 
   localStorage.setItem("user", JSON.stringify(user));

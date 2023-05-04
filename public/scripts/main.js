@@ -34,6 +34,7 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+// 로그인 완료시 로그인 a태그 마이페이지 a태그로 변경
 window.onload = function () {
   // 로그인 상태를 확인한다.
   const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -45,7 +46,20 @@ window.onload = function () {
     // 마이페이지 링크로 변경한다.
     const loginLink = document.querySelector(".navbar__list li:last-child a");
     loginLink.href = `./mypage.html?email=${userEmail}`;
-    loginLink.innerText = "마이페이지";
+    loginLink.innerText = "My Page";
+
+    const logoutBtn = document.createElement("button");
+    logoutBtn.innerText = "로그아웃";
+    logoutBtn.classList.add("logout-btn");
+    logoutBtn.addEventListener("click", function () {
+      // 로그아웃 처리
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("userEmail");
+      location.reload();
+    });
+
+    const navbarList = document.querySelector(".navbar__list");
+    navbarList.appendChild(logoutBtn);
   }
 };
 

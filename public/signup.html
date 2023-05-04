@@ -44,6 +44,18 @@
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required />
         </div>
+        <div>
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" min="1" max="150" required />
+        </div>
+        <div>
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+          </select>
+        </div>
         <button type="submit">Sign Up</button>
       </form>
     </section>

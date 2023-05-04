@@ -58,6 +58,22 @@ a {
   margin-right: 0;
 }
 
+.logout-btn {
+  background-color: #333;
+  border: 1px solid #333;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0 4px;
+  border-radius: 4px;
+  margin-left: 2px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #846f6f;
+}
+
 /* Main Styles */
 .container {
   max-width: 1100px;

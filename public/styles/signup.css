@@ -99,6 +99,37 @@ nav a {
   border-color: #333;
 }
 
+#signup div:nth-of-type(5),
+#signup div:nth-of-type(6) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#signup div:nth-of-type(5) label,
+#signup div:nth-of-type(6) label {
+  flex-basis: 30%;
+}
+
+#signup div:nth-of-type(5) input,
+#signup div:nth-of-type(6) select {
+  flex-basis: 65%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  transition: border-color 0.3s ease-in-out;
+}
+
+#signup div input[type="number"]::-webkit-inner-spin-button,
+#signup div input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 #signup button[type="submit"] {
   background-color: #4c4c4c;
   color: #fff;
