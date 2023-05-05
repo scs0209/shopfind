@@ -35,7 +35,7 @@ window.onload = function () {
         const link = document.createElement("a");
         link.href = favorite.link;
         link.target = "_blank";
-        link.textContent = favorite.title;
+        link.innerHTML = favorite.title; // favorite.title에 포함된 HTML 태그를 적용하기 위해 innerHTML을 사용합니다.
 
         const removeBtn = document.createElement("button");
         removeBtn.innerText = "Remove";

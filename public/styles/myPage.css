@@ -102,21 +102,20 @@ h1 {
 /* favorites */
 .favorites-container {
   width: 100%;
-  overflow-x: scroll;
   display: flex;
   justify-content: center;
 }
 
-.favorites-container::-webkit-scrollbar {
-  width: 10px;
+.favorites-list::-webkit-scrollbar {
+  height: 4px;
 }
 
-.favorites-container::-webkit-scrollbar-track {
+.favorites-list::-webkit-scrollbar-track {
   background-color: #f2f2f2;
   border-radius: 5px;
 }
 
-.favorites-container::-webkit-scrollbar-thumb {
+.favorites-list::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 5px;
 }
@@ -147,6 +146,8 @@ h1 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  text-decoration: none;
+  color: black;
 }
 
 .card button {
