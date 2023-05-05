@@ -18,13 +18,49 @@ form.addEventListener("submit", async (e) => {
         const div = document.createElement("div");
         div.classList.add("card");
 
+        const isLiked = localStorage.getItem(item.link) === "true";
+        const likeBtnText = isLiked ? "Remove" : "Add to Favorites";
+
         div.innerHTML = `
           <img src="${item.image}">
           <h3>${item.title}</h3>
           <p>${item.mallName}</p>
           <p>${item.lprice}원</p>
           <a href="${item.link}" target="_blank">Go to store</a>
+          <button class="like-btn" data-link="${item.link}" data-liked="${isLiked}">
+            ${likeBtnText}
+          </button>
         `;
+
+        const likeBtn = div.querySelector(".like-btn");
+        likeBtn.addEventListener("click", () => {
+          const link = likeBtn.dataset.link;
+          const liked = likeBtn.dataset.liked === "true";
+
+          let favorites = localStorage.getItem("favorites");
+          if (!favorites) {
+            favorites = [];
+          } else {
+            favorites = JSON.parse(favorites);
+          }
+
+          if (liked) {
+            const index = favorites.findIndex(
+              (favorite) => favorite.link === link
+            );
+            if (index > -1) {
+              favorites.splice(index, 1);
+            }
+            likeBtn.dataset.liked = "false";
+            likeBtn.innerText = "Add to Favorites";
+          } else {
+            favorites.push(item);
+            likeBtn.dataset.liked = "true";
+            likeBtn.innerText = "Remove";
+          }
+
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
 
         searchResults.appendChild(div);
       }

@@ -1,33 +1,63 @@
 "use strict";
+const emailSpan = document.querySelector(".email");
+const nameSpan = document.querySelector(".name");
+const ageSpan = document.querySelector(".age");
+const genderSpan = document.querySelector(".gender");
+const favoritesContainer = document.querySelector(".favorites-container");
+
+const favoritesList = document.createElement("ul");
+favoritesList.classList.add("favorites-list");
+
 const logoutButton = document.querySelector("button");
 
 window.onload = function () {
-  //로그인 상태를 확인
   const isLoggedIn = localStorage.getItem("isLoggedIn");
-
   if (isLoggedIn) {
-    //로그인된 사용자의 이메일을 가져온다.
     const userEmail = localStorage.getItem("userEmail");
+    emailSpan.innerText = userEmail;
 
-    //이메일을 출력한다.
-    const emailElement = document.querySelector(".email");
-    emailElement.innerText = userEmail;
-
-    //사용자의 정보를 가져온다.
     const userInfo = JSON.parse(localStorage.getItem("user"));
-    console.log(userInfo);
+    nameSpan.innerText = userInfo.username;
+    ageSpan.innerText = userInfo.age;
+    genderSpan.innerText = userInfo.gender;
 
-    //이름, 나이, 성별을 출력한다.
-    const nameElement = document.querySelector(".name");
-    nameElement.innerText = userInfo.username;
+    const favorites = JSON.parse(localStorage.getItem("favorites"));
+    if (favorites === null || favorites.length === 0) {
+      favoritesList.innerHTML = "찜한 상품이 없습니다.";
+    } else {
+      for (const favorite of favorites) {
+        const div = document.createElement("div");
+        div.classList.add("card");
 
-    const ageElement = document.querySelector(".age");
-    ageElement.innerText = userInfo.age;
+        const img = document.createElement("img");
+        img.src = favorite.image;
 
-    const genderElement = document.querySelector(".gender");
-    genderElement.innerText = userInfo.gender;
+        const link = document.createElement("a");
+        link.href = favorite.link;
+        link.target = "_blank";
+        link.textContent = favorite.title;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.innerText = "Remove";
+        removeBtn.addEventListener("click", () => {
+          const index = favorites.indexOf(favorite);
+          if (index > -1) {
+            favorites.splice(index, 1);
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            div.remove();
+          }
+        });
+
+        div.appendChild(img);
+        div.appendChild(link);
+        div.appendChild(removeBtn);
+
+        favoritesList.appendChild(div);
+      }
+    }
+
+    favoritesContainer.appendChild(favoritesList);
   } else {
-    //로그인되어 있지 않운 경우 로그인 페이지로 이동한다.
     location.href = "./login.html";
   }
 };
