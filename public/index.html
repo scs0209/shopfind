@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/bd7b0a019d.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./styles/index.css" />
     <title>ShopFind</title>
   </head>
@@ -14,11 +18,15 @@
           <a href="/">Shop Find</a>
         </div>
         <ul class="navbar__list">
-          <li class="navbar__item">최신 쇼핑몰</li>
-          <li class="navbar__item">인기 쇼핑몰</li>
+          <li class="navbar__item">추천 쇼핑몰</li>
           <li class="navbar__item">연령대별 쇼핑몰</li>
           <li><a href="./login.html">로그인</a></li>
         </ul>
+
+        <!-- Toggle button -->
+        <button class="navbar__toggle-btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </nav>
     </header>
 
@@ -39,6 +47,27 @@
           <h1>추천 쇼핑몰</h1>
           <div class="shopping-malls-container">
             <!-- 쇼핑몰 목록을 추가함 -->
+          </div>
+        </section>
+
+        <section id="age-group-shopping-malls">
+          <h1>연령대별 선호 쇼핑몰</h1>
+          <form>
+            <label>
+              <input type="radio" name="age" value="10s" checked />
+              10대
+            </label>
+            <label>
+              <input type="radio" name="age" value="20s" />
+              20대
+            </label>
+            <label>
+              <input type="radio" name="age" value="30s" />
+              30대
+            </label>
+          </form>
+          <div id="age-group-results">
+            <!-- 연령대별 쇼핑몰 목록을 보여줄 부분 -->
           </div>
         </section>
       </div>

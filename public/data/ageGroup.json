@@ -1,0 +1,55 @@
+{
+  "shoppingMallByAgeGroup": {
+    "10s": [
+      {
+        "name": "무신사스토어",
+        "url": "https://www.musinsa.com/app/",
+        "imgSrc": "./images/musinsa.png"
+      },
+      {
+        "name": "에이블리",
+        "url": "https://m.a-bly.com/",
+        "imgSrc": "./images/ably.png"
+      },
+      {
+        "name": "쿠팡",
+        "url": "https://www.coupang.com/",
+        "imgSrc": "./images/coupang.png"
+      }
+    ],
+    "20s": [
+      {
+        "name": "무신사스토어",
+        "url": "https://www.musinsa.com/app/",
+        "imgSrc": "./images/musinsa.png"
+      },
+      {
+        "name": "G마켓",
+        "url": "https://www.gmarket.co.kr/",
+        "imgSrc": "./images/g마켓.png"
+      },
+      {
+        "name": "쿠팡",
+        "url": "https://www.coupang.com/",
+        "imgSrc": "./images/coupang.png"
+      }
+    ],
+    "30s": [
+      {
+        "name": "유니클로",
+        "url": " https://www.uniqlo.kr/",
+        "imgSrc": "./images/유니클로.png"
+      },
+      {
+        "name": "G마켓",
+        "url": "https://www.gmarket.co.kr/",
+        "imgSrc": "./images/g마켓.png"
+      },
+      {
+        "name": "쿠팡",
+        "url": "https://www.coupang.com/",
+        "imgSrc": "./images/coupang.png"
+      }
+    ]
+  }
+}

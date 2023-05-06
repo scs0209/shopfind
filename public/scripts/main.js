@@ -2,6 +2,11 @@
 const form = document.querySelector("form");
 const searchInput = document.querySelector("#search-input");
 const searchResults = document.querySelector("#search-results");
+const ageGroupShoppingMalls = document.querySelector(
+  "#age-group-shopping-malls"
+);
+const ageGroupResults =
+  ageGroupShoppingMalls.querySelector("#age-group-results");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -70,6 +75,13 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+//Navbar toggle button for small screen
+const navbarMenu = document.querySelector(".navbar__list");
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
+});
+
 // 로그인 완료시 로그인 a태그 마이페이지 a태그로 변경
 window.onload = function () {
   // 로그인 상태를 확인한다.
@@ -128,3 +140,45 @@ function renderShoppingMalls() {
 }
 
 renderShoppingMalls();
+
+// 연령대별 쇼핑몰 데이터
+const shoppingMallsByAgeGroup = {
+  "10s": [],
+  "20s": [],
+  "30s": [],
+};
+
+// 연령대별 쇼핑몰 목록을 보여주는 함수
+function showShoppingMallsByAgeGroup(age) {
+  const shoppingMalls = shoppingMallsByAgeGroup[age];
+  let html = "";
+  shoppingMalls.forEach((mall) => {
+    html += `<div class="shopping-mall">
+      <a href="${mall.url}" target="_blank">
+        <img src="${mall.imgSrc}" alt="${mall.name}">
+        ${mall.name}
+      </a>
+    </div>`;
+  });
+  ageGroupResults.innerHTML = html;
+}
+
+// 라디오버튼 변경시 해당 연령대 쇼핑몰 보여주기
+const ageRadios = ageGroupShoppingMalls.querySelectorAll(
+  'input[type="radio"][name="age"]'
+);
+ageRadios.forEach((radio) => {
+  radio.addEventListener("change", (event) => {
+    const selectedAge = event.target.value;
+    showShoppingMallsByAgeGroup(selectedAge);
+  });
+});
+
+// ageGroup.json 파일에서 데이터 가져와서 shoppingMallsByAgeGroup에 추가하기
+fetch("./data/ageGroup.json")
+  .then((response) => response.json())
+  .then((data) => {
+    for (let age in data.shoppingMallByAgeGroup) {
+      shoppingMallsByAgeGroup[age] = data.shoppingMallByAgeGroup[age];
+    }
+  });
