@@ -24,7 +24,7 @@ form.addEventListener("submit", async (e) => {
         div.classList.add("card");
 
         const isLiked = localStorage.getItem(item.link) === "true";
-        const likeBtnText = isLiked ? "Remove" : "Add to Favorites";
+        const likeBtnText = isLiked ? "Remove" : "Liked";
 
         div.innerHTML = `
           <img src="${item.image}">
