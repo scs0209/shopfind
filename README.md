@@ -78,7 +78,7 @@ vs code live server 실행
 
 |                                                           메인 페이지                                                            |                                                          로그인 페이지                                                          |
 | :------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
-| <img width="329" src= "https://user-images.githubusercontent.com/110822847/236622293-e9d3cec3-c06f-4b06-a764-73e6a28678be.png"/> | <img width="329" src="(https://user-images.githubusercontent.com/110822847/236622311-ae3cbcfd-d405-4ee1-8a5c-ba3c96ac7afe.png"/> |
+| <img width="329" src= "https://user-images.githubusercontent.com/110822847/236622293-e9d3cec3-c06f-4b06-a764-73e6a28678be.png"/> | <img width="329" src="https://user-images.githubusercontent.com/110822847/236622311-ae3cbcfd-d405-4ee1-8a5c-ba3c96ac7afe.png"/> |
 |                                                         회원가입 페이지                                                          |                                                          마이 페이지                                                          |
 | <img width="329" src="https://user-images.githubusercontent.com/110822847/236622333-cef3c518-1674-4b10-ac52-0cee4a62e19f.png"/>  | <img width="329" src="https://user-images.githubusercontent.com/110822847/236622360-b895682c-4e2f-4452-bf50-4b204b2ccc0e.png"/> |
 
