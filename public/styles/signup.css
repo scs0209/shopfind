@@ -167,3 +167,41 @@ nav a {
   color: #423d3d;
   margin: 0;
 }
+
+/* 모바일 화면 스타일 */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 0.5rem 0;
+  }
+
+  #signup {
+    padding: 2rem;
+    margin-top: 4rem;
+  }
+
+  #signup input[type="text"],
+  #signup input[type="email"],
+  #signup input[type="password"],
+  #signup div:nth-of-type(5) input,
+  #signup div:nth-of-type(6) select {
+    font-size: 1rem;
+  }
+
+  #signup button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  #footer p {
+    font-size: 0.8rem;
+  }
+}
