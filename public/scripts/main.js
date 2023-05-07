@@ -2,15 +2,28 @@
 const form = document.querySelector("form");
 const searchInput = document.querySelector("#search-input");
 const searchResults = document.querySelector("#search-results");
+const searchHistory = document.querySelector("#search-history");
 const ageGroupShoppingMalls = document.querySelector(
   "#age-group-shopping-malls"
 );
 const ageGroupResults =
   ageGroupShoppingMalls.querySelector("#age-group-results");
 
+// 검색 결과
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const query = searchInput.value;
+
+  // 검색어를 로컬 스토리지에 저장
+  let searchHistory = localStorage.getItem("searchHistory");
+  if (!searchHistory) {
+    searchHistory = [];
+  } else {
+    searchHistory = JSON.parse(searchHistory);
+  }
+  searchHistory.push(query);
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
   const response = await fetch(`http://localhost:3000/search?query=${query}`);
   if (response.ok) {
     const data = await response.json();
@@ -73,6 +86,41 @@ form.addEventListener("submit", async (e) => {
   } else {
     searchResults.innerHTML = "Error getting search results.";
   }
+});
+
+searchInput.addEventListener("focus", () => {
+  const history = JSON.parse(localStorage.getItem("searchHistory"));
+  if (history && history.length > 0) {
+    searchHistory.innerHTML = ""; // 기존 검색 기록 삭제
+    const uniqueHistory = [...new Set(history)]; // 중복 제거
+    for (const query of uniqueHistory) {
+      const button = document.createElement("button");
+      button.innerText = query;
+      button.addEventListener("click", () => {
+        searchInput.value = query;
+        searchForm.dispatchEvent(new Event("submit"));
+      });
+      searchHistory.appendChild(button);
+    }
+    searchHistory.classList.add("active");
+    // 검색 기록 삭제 버튼 추가
+    const clearHistoryButton = document.createElement("button");
+    clearHistoryButton.innerText = "✖";
+    clearHistoryButton.classList.add("clear-history");
+    clearHistoryButton.addEventListener("click", () => {
+      localStorage.removeItem("searchHistory");
+      searchHistory.innerHTML = "";
+    });
+    searchHistory.appendChild(clearHistoryButton);
+  }
+});
+
+searchInput.addEventListener("blur", () => {
+  searchHistory.classList.remove("active");
+});
+
+searchInput.addEventListener("input", () => {
+  searchHistory.classList.remove("active");
 });
 
 //Navbar toggle button for small screen

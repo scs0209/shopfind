@@ -257,6 +257,52 @@ a {
   margin-top: 2rem;
 }
 
+/* 검색 기록 */
+#search-history {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  background-color: #f2f2f2;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#search-history.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#search-history button {
+  background-color: #fff;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 2rem;
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#search-history button:hover {
+  background-color: #f2f2f2;
+}
+
+.clear-history {
+  background-color: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  outline: none;
+}
+
 /* .card 클래스에 대한 스타일 */
 .card {
   display: flex;
