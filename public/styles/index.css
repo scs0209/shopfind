@@ -277,7 +277,7 @@ a {
   visibility: visible;
 }
 
-#search-history button {
+.history-btn {
   background-color: #fff;
   color: #333;
   padding: 0.5rem 1rem;
@@ -289,7 +289,7 @@ a {
   transition: background-color 0.3s ease-in-out;
 }
 
-#search-history button:hover {
+.history-btn:hover {
   background-color: #f2f2f2;
 }
 

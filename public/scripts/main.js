@@ -95,6 +95,7 @@ searchInput.addEventListener("focus", () => {
     const uniqueHistory = [...new Set(history)]; // 중복 제거
     for (const query of uniqueHistory) {
       const button = document.createElement("button");
+      button.classList.add("history-btn");
       button.innerText = query;
       button.addEventListener("click", () => {
         searchInput.value = query;
@@ -212,14 +213,14 @@ function showShoppingMallsByAgeGroup(age) {
 }
 
 // 라디오버튼 변경시 해당 연령대 쇼핑몰 보여주기
-const ageRadios = ageGroupShoppingMalls.querySelectorAll(
-  'input[type="radio"][name="age"]'
-);
-ageRadios.forEach((radio) => {
-  radio.addEventListener("change", (event) => {
+// 이벤트 위임을 사용하여 최상단에만 이벤트를 달아주어 자식 요소에서 발생한 이벤트를 캐리해서 처리를 해주었다.
+// 이렇게 하면 자식 요소를 추가/삭제해도 이벤트를 추가/삭제하지 않아도 되므로 코드를 더 깔끔하고 성능도 개선할 수 있습니다.
+// 다음과 같이 하면, ageGroupShoppingMalls 요소의 자식 요소에서 라디오 버튼의 값을 변경할 때마다 change 이벤트가 발생하므로 이벤트 리스너에서 이 값을 확인해서 showShoppingMallByAgeGroup 함수를 호출합니다. 이렇게 하면 라디오 버튼의 개수가 많아져도 이벤트를 추가하지 않아도 되므로 코드 유지 보수성이 개선됩니다.
+ageGroupShoppingMalls.addEventListener("change", (event) => {
+  if (event.target.matches('input[type="radio"][name="age"]')) {
     const selectedAge = event.target.value;
     showShoppingMallsByAgeGroup(selectedAge);
-  });
+  }
 });
 
 // ageGroup.json 파일에서 데이터 가져와서 shoppingMallsByAgeGroup에 추가하기
